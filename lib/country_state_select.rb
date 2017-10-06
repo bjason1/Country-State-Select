@@ -30,7 +30,7 @@ module CountryStateSelect
 
   #Return the collected States for a given Country
   def self.collect_states(country)
-    CS.states(country).collect {|p| [ p[1], p[0] ] }.compact
+    CS.states(country).collect {|p| [ p[1], p[0] ] }.sort.compact
   end
 
   #Return the cities of given state and country
@@ -58,7 +58,7 @@ module CountryStateSelect
   def self.merge_hash(options, collections)
     options = options.merge(collection: collections)
     options = options.merge(:as => :string) if collections.class == String
-    options.sort_by {|_key, value| value}
+    options
   end
 
 end

@@ -58,7 +58,7 @@ module CountryStateSelect
   def self.merge_hash(options, collections)
     options = options.merge(collection: collections)
     options = options.merge(:as => :string) if collections.class == String
-    options
+    options.sort_by {|_key, value| value}
   end
 
 end
